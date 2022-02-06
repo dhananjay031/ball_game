@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          .container{
+              border: 2px solid gray;
+              margin: 20px;
+          }
+          
+         .green1{
+             height: 100px;
+             width:  100px;
+             border-radius: 50%;
+             background-color: greenyellow;
+             cursor: pointer;
+             margin: 5px;
+             display: inline-block;
+         }
+         .red1{
+             height: 100px;
+             width: 100px;
+             border-radius: 50%;
+             background-color: red;
+             cursor: pointer;
+             margin: 5px;
+             display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="greenandred" class="container">
+            <span class="green1" onclick="putred()"></span>
+            <span class="red1" onclick="putgreen()"></span>
+        </div>
+        
+        <script>
+            const g_r = document.getElementById('greenandred');
+           
+            function putred(){
+                let span = document.createElement('span');
+                span.classList.add('red1');
+                span.addEventListener('click',putgreen);
+                g_r.appendChild(span);
+            }
+            function putgreen(){
+                let span = document.createElement('span');
+                span.classList.add('green1');
+                span.addEventListener('click',putred);
+                g_r.appendChild(span);
+            }
+
+        </script>
+    </body>
+</html>
